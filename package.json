@@ -1,0 +1,17 @@
+{
+  "name": "month-boundary-iterator",
+  "version": "0.1.0",
+  "description": "Generates UTC timestamps for the first day of each month between two dates, with configurable endpoint inclusion.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {}
+}
