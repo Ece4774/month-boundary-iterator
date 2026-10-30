@@ -39,3 +39,10 @@ All comparisons are done in UTC. This is a deliberate trade-off: it avoids timez
 A timestamp is only treated as a month boundary when its UTC date component is the first of the month and the time is exactly `00:00:00.000Z`. A start of `2024-02-01T00:00:00.001Z` is not a boundary — the first yielded value will be `2024-03-01T00:00:00Z`.
 
 If `start` is after `end`, the iterator throws a `RangeError` by default. Pass `{ throwOnReversed: false }` to silently yield nothing instead.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
